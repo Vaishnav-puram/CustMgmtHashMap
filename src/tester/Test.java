@@ -59,8 +59,8 @@ public class Test {
 			System.out.println("7.Unsubscribe Plan");
 			System.out.println("8.Delete Customer");
 			System.out.println("9.Login as admin");
-			System.out.println("10.Custom Sort");
-			System.out.println("11.Natural Sort");
+			System.out.println("10.Sort DOB by Natural Sort");
+			System.out.println("11.Sort DOB by Custom Sort");
 			System.out.println("12.Exit");
 			choice = s.nextInt();
 			try {
@@ -214,8 +214,13 @@ public class Test {
 						break;
 					case 10: //Collections.sort(customers);
 						System.out.println("Natural Sort");
-						TreeMap<Integer,Customer> ts=new TreeMap<>(custMap);
-						for(Customer cts:ts.values()) {
+//						TreeMap<Integer,Customer> ts=new TreeMap<>(custMap);
+//						for(Customer cts:ts.values()) {
+//							System.out.println(cts);
+//						}
+						List<Customer> list=new ArrayList<>(custMap.values());
+						Collections.sort(list);
+						for(Customer cts:list) {
 							System.out.println(cts);
 						}
 						break;
