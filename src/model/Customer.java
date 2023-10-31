@@ -5,7 +5,7 @@ import java.util.Objects;
 
 import model.ServicePlan.enumServicePlan;
 
-public class Customer{
+public class Customer implements Comparable<Customer>{
 	private int id;
 	private static int idCounter=1;
 	private String firstName;
@@ -100,5 +100,10 @@ public class Customer{
 	public String toString() {
 		return "Customer [id=" + id + ", firstName=" + firstName + ", lastName=" + lastName + ", email=" + email
 				+ ", password=" + password + ", regAmt=" + regAmt + ", dob=" + dob + ", plan=" + plan + " PlanCharges :"+this.plan.getPlan()+"Last Subscribed date = "+this.lastSubDate+"]";
+	}
+	@Override
+	public int compareTo(Customer o) {
+		// TODO Auto-generated method stub
+		return this.getDob().compareTo(o.getDob());
 	}
 }
