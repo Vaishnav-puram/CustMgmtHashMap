@@ -45,8 +45,10 @@ public class ValidateInputs {
 	}
 	public static void checkDupEmail(String email,HashMap<Integer,Customer> custMap) throws DuplicateEmailException, UserNotFound {
 		//Customer cust=CustRepo.findByEmail(email, customers);
-		if(custMap.containsValue(email)) {
-			throw new DuplicateEmailException("Duplicate email!");
+		for(Customer c:custMap.values()) {
+			if(c.getEmail().equals(email)) {
+				throw new DuplicateEmailException("Duplicate email!");
+			}
 		}
 	}
 	
